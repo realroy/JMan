@@ -97,7 +97,7 @@ public class Map implements ActionListener{
         
         frame.pack();
         frame.setLocation(5,30);
-        frame.setResizable(false);
+        frame.setResizable(true);
         frame.setVisible(true);
     }
     

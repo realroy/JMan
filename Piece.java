@@ -7,12 +7,12 @@ public abstract class Piece{
     public static final int JMAN= 1;   // piece is the J*man
     public static final int WALKER= 2; // piece is a walker
     public static final int PILLAR= 3; // piece is a pillar
-	private int type,
+	protected int type,
 				x,
 				y;
-	private Color color;
-	private boolean acted;
-	private Map map;
+	protected Color color;
+	protected boolean acted;
+	protected Map map;
     
     /** Constructor: a Piece on Map m with type t.
         Precondition: type is one of the four constants of this class. */
