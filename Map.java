@@ -1,3 +1,4 @@
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -31,16 +32,17 @@ public class Map implements ActionListener{
     
     private JMan jMan; //the J*Man piece in this map.
     
+    
+    
     /** Start a game 20x20 game wih 10 walkers, 10 pillars, and 20 blocks. */
-    public static void main(String[] pars) {
-        Map m= new Map();
+    public static void main(String[] args) {
+        Map m = new Map();
     }
     
     /** Constructor: a default 20 x 20 game with 10 walkers, 10 pillars,
      and 20 blocks placed randomly throughout the game grid. */
     public Map(){
         this(20, 20, 20, 10, 10);
-        jMan = new JMan(0, 0 , 0, this);
     }
     
     /** Constructor: a game with an h x w grid with bl blocks,
@@ -50,7 +52,7 @@ public class Map implements ActionListener{
     public Map(int h, int w, int bl, int wa, int pi){
         this.height= h;
         this.width= w;
-        jMan = new JMan(0, 0 , 0, this);
+        
         // Set the preferred dimensions of the buttons
         Dimension buttondim= new Dimension(width*tileWidth/4,27);
         bUp.setPreferredSize(buttondim);
@@ -160,7 +162,17 @@ public class Map implements ActionListener{
      if the new piece is J*Man, store it in field jMan.
      Precondition: typ is one of the piece constants in class Piece.*/
     public void putNew(int typ, int x, int y){
-    	
+        if (typ == 0){
+        	grid[x][y] = new Block(x,y,this);
+        } else if (typ == 1){
+        	jMan = new JMan(x,y,Piece.rand(0, 2),this);
+        	grid[x][y] = jMan;
+        } else if (typ == 2){
+        	grid[x][y] = new Walker(x,y,Piece.rand(0, 2),this);
+        } else if (typ == 3){
+        	grid[x][y] = new Pillar(x,y,Piece.rand(0, 2), this);
+        }
+		
     }
     
     /** = "(x, y) is inside the grid". */
