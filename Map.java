@@ -40,6 +40,7 @@ public class Map implements ActionListener{
      and 20 blocks placed randomly throughout the game grid. */
     public Map(){
         this(20, 20, 20, 10, 10);
+        jMan = new JMan(0, 0 , 0, this);
     }
     
     /** Constructor: a game with an h x w grid with bl blocks,
@@ -49,7 +50,7 @@ public class Map implements ActionListener{
     public Map(int h, int w, int bl, int wa, int pi){
         this.height= h;
         this.width= w;
-        
+        jMan = new JMan(0, 0 , 0, this);
         // Set the preferred dimensions of the buttons
         Dimension buttondim= new Dimension(width*tileWidth/4,27);
         bUp.setPreferredSize(buttondim);
@@ -159,7 +160,7 @@ public class Map implements ActionListener{
      if the new piece is J*Man, store it in field jMan.
      Precondition: typ is one of the piece constants in class Piece.*/
     public void putNew(int typ, int x, int y){
-        
+    	
     }
     
     /** = "(x, y) is inside the grid". */
